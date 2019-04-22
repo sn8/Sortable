@@ -14,8 +14,6 @@ Supported by [<img width="100px" src="https://user-images.githubusercontent.com/
  * Supports drag handles *and selectable text* (better than voidberg's html5sortable)
  * Smart auto-scrolling
  * Advanced swap detection
- * Advanced animation system
- * [Multi-drag]() support
  * Built using native HTML5 drag and drop API
  * Supports
    * [Meteor](https://github.com/SortableJS/meteor-sortablejs)
@@ -265,7 +263,6 @@ Demo:
 
 ---
 
-
 #### `delay` option
 Time in milliseconds to define when the sorting should start.
 Unfortunately, due to browser restrictions, delaying is not possible on IE or Edge with native drag & drop.
@@ -279,7 +276,7 @@ Demo: https://jsbin.com/zosiwah/edit?js,output
 #### `swapThreshold` option
 Percentage of the target that the swap zone will take up, as a float between `0` and `1`. This option has nothing to do with the `swap` option.
 
-[Read more](https://github.com/SortableJS/Sortable/wiki/Swap-Thresholds-and-Direction#swap-threshold)
+Read more: https://github.com/SortableJS/Sortable/wiki/Swap-Thresholds-and-Direction#swap-threshold
 
 Demo: http://sortablejs.github.io/Sortable#thresholds
 
@@ -290,7 +287,7 @@ Demo: http://sortablejs.github.io/Sortable#thresholds
 #### `invertSwap` option
 Set to `true` to set the swap zone to the sides of the target, for the effect of sorting "in between" items. This option has nothing to do with the `swap` option.
 
-[Read more](https://github.com/SortableJS/Sortable/wiki/Swap-Thresholds-and-Direction#forcing-inverted-swap-zone)
+Read more: https://github.com/SortableJS/Sortable/wiki/Swap-Thresholds-and-Direction#forcing-inverted-swap-zone
 
 Demo: http://sortablejs.github.io/Sortable#thresholds
 
@@ -301,7 +298,7 @@ Demo: http://sortablejs.github.io/Sortable#thresholds
 #### `invertedSwapThreshold` option
 Percentage of the target that the inverted swap zone will take up, as a float between `0` and `1`. If not given, will default to `swapThreshold`. This option has nothing to do with the `swap` option.
 
-[Read more](https://github.com/SortableJS/Sortable/wiki/Swap-Thresholds-and-Direction#dealing-with-swap-glitching)
+Read more: https://github.com/SortableJS/Sortable/wiki/Swap-Thresholds-and-Direction#dealing-with-swap-glitching
 
 
 ---
@@ -310,7 +307,7 @@ Percentage of the target that the inverted swap zone will take up, as a float be
 #### `direction` option
 Direction that the Sortable should sort in. Can be set to `'vertical'`, `'horizontal'`, or a function, which will be called whenever a target is dragged over. Must return `'vertical'` or `'horizontal'`.
 
-[Read more](https://github.com/SortableJS/Sortable/wiki/Swap-Thresholds-and-Direction#direction)
+Read more: https://github.com/SortableJS/Sortable/wiki/Swap-Thresholds-and-Direction#direction
 
 
 Example of direction detection for vertical list that includes full column and half column elements:
@@ -394,9 +391,8 @@ Sortable.create(el, {
 
 
 #### `multiDrag` option
-This option allows users to select multiple items within the sortable at once, and drag them as one item.
+This option will allow users to select multiple items within the sortable at once, and drag them as one item.
 Once placed, the items will unfold into their original order, but all beside eachother at the new position.
-[Read More]()
 
 Demo: https://jsbin.com/wopavom/edit?js,output
 
