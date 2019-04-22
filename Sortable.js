@@ -1635,17 +1635,19 @@
 						putSortable && putSortable.save();
 					}
 					else {
-						if (dragEl.nextSibling !== nextEl) {
-							// Get the index of the dragged element within its parent
-							newIndex = _index(dragEl);
-							newDraggableIndex = _index(dragEl, options.draggable);
+						// Get the index of the dragged element within its parent
+						newIndex = _index(dragEl);
+						newDraggableIndex = _index(dragEl, options.draggable);
 
-							if (newIndex >= 0) {
-								// drag & drop within the same list
-								_dispatchEvent(this, rootEl, 'update', dragEl, parentEl, rootEl, oldIndex, newIndex, oldDraggableIndex, newDraggableIndex, evt);
-								_dispatchEvent(this, rootEl, 'sort', dragEl, parentEl, rootEl, oldIndex, newIndex, oldDraggableIndex, newDraggableIndex, evt);
-							}
-						}
+                        if (newIndex >= 0) {
+                            if (dragEl.nextSibling !== nextEl) {
+                                // drag & drop within the same list
+                                _dispatchEvent(this, rootEl, 'update', dragEl, parentEl, rootEl, oldIndex, newIndex, oldDraggableIndex, newDraggableIndex, evt);
+                                _dispatchEvent(this, rootEl, 'sort', dragEl, parentEl, rootEl, oldIndex, newIndex, oldDraggableIndex, newDraggableIndex, evt);
+                            } else {
+                                _dispatchEvent(this, rootEl, 'multiUpdate', dragEl, parentEl, rootEl, oldIndex, newIndex, oldDraggableIndex, newDraggableIndex, evt);
+                            }
+                        }
 					}
 
 					if (Sortable.active) {
