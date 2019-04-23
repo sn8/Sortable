@@ -1640,11 +1640,18 @@
 						newDraggableIndex = _index(dragEl, options.draggable);
 
                         if (newIndex >= 0) {
-                            if (dragEl.nextSibling !== nextEl) {
+                            if (dragEl.nextSibling !== nextEl && multiDragElements.length <= 1) {
                                 // drag & drop within the same list
                                 _dispatchEvent(this, rootEl, 'update', dragEl, parentEl, rootEl, oldIndex, newIndex, oldDraggableIndex, newDraggableIndex, evt);
                                 _dispatchEvent(this, rootEl, 'sort', dragEl, parentEl, rootEl, oldIndex, newIndex, oldDraggableIndex, newDraggableIndex, evt);
                             } else {
+                                if (multiDragElements[0] !== dragEl) {
+                                    const ind = multiDragElements.indexOf(dragEl);
+                                    oldIndex -= ind;
+                                    oldDraggableIndex = oldIndex;
+                                    newIndex = _index(multiDragElements[0]);
+                                    newDraggableIndex = _index(multiDragElements[0], options.draggable);
+                                }
                                 _dispatchEvent(this, rootEl, 'multiUpdate', dragEl, parentEl, rootEl, oldIndex, newIndex, oldDraggableIndex, newDraggableIndex, evt);
                             }
                         }
